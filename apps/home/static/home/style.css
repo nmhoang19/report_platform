@@ -1,0 +1,148 @@
+/* Reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Tổng quan */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FAFAFA; /* Màu nền chung cho toàn bộ container */
+    color: #333;
+}
+
+/* Container chung */
+.container {
+    display: flex;
+    background-color: #FAFAFA; /* Màu nền chung cho container */
+    min-height: 100vh; /* Đảm bảo container luôn cao ít nhất là 100% viewport height */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 250px;
+    background-color: #FAFAFA; /* Áp dụng cùng màu nền với container */
+    padding: 20px;
+    box-shadow: none; /* Loại bỏ shadow */
+}
+
+.sidebar h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333; /* Màu văn bản cho các mục */
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a i {
+    margin-right: 10px;
+}
+
+.sidebar ul li a.active {
+    background-color: #dfe4ea; /* Màu nền cho mục đang chọn */
+    color: #007bff; /* Màu xanh chủ đạo cho mục active */
+    font-weight: bold;
+}
+
+.sidebar ul li a:hover {
+    background-color: #e2e6ea;
+}
+
+/* Main Content Styling */
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+    /* Bỏ background trắng ở đây */
+    /* background-color: #fff; */
+    border-radius: 10px; /* Bo góc cho phần nội dung chính */
+    box-shadow: none; /* Bỏ shadow để không có hiệu ứng đổ bóng */
+    margin: 20px;
+}
+
+/* User Info Section */
+.user-info {
+    display: flex;
+    align-items: center;
+    background-color: transparent; /* Loại bỏ màu nền trắng */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: none; /* Bỏ shadow của phần user-info */
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.user-img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+}
+
+.user-details {
+    margin-right: auto;
+}
+
+.user-details h2 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.user-details p {
+    font-size: 18px;
+    color: #666;
+}
+
+.sign-out-btn {
+    background-color: #007bff; /* Màu xanh chủ đạo cho nút Sign out */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sign-out-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Header */
+header {
+    padding: 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0; /* Thêm border nhẹ bên dưới header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Thêm shadow nhẹ để phân tách */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+header img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
