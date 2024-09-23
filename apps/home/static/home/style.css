@@ -21,6 +21,10 @@ body {
 
 /* Sidebar Styling */
 .sidebar {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    height: calc(100vh - 80px); /* Chiều cao sidebar trừ đi chiều cao header */
     width: 250px;
     background-color: #FAFAFA; /* Áp dụng cùng màu nền với container */
     padding: 20px;
@@ -69,13 +73,17 @@ body {
 
 /* Main Content Styling */
 .main-content {
+    margin-top: 80px; /* Đặt nội dung dưới header */
+    margin-left: 250px; /* Tránh đè lên sidebar */
+    height: calc(100vh - 80px); /* Chiều cao phần nội dung trừ đi chiều cao của header */
+    overflow-y: auto;
     flex-grow: 1;
     padding: 40px;
     /* Bỏ background trắng ở đây */
     /* background-color: #fff; */
     border-radius: 10px; /* Bo góc cho phần nội dung chính */
     box-shadow: none; /* Bỏ shadow để không có hiệu ứng đổ bóng */
-    margin: 20px;
+    /* margin: 100px; */
 }
 
 /* User Info Section */
@@ -86,7 +94,7 @@ body {
     border-radius: 10px;
     padding: 20px;
     box-shadow: none; /* Bỏ shadow của phần user-info */
-    max-width: 600px;
+    /* max-width: 600px; */
     margin-top: 20px;
 }
 
@@ -134,6 +142,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed; /* Cố định header ở đầu trang */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Đảm bảo header luôn trên các phần khác */
 }
 
 header h1 {
