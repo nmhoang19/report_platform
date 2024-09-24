@@ -38,9 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.home',
-    'apps.reports',
     'apps.users',
-    'apps.query',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +56,7 @@ ROOT_URLCONF = 'report_platform.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [],
         'APP_DIRS': True, # Bật tìm kiếm template trong thư mục templates của từng apps
         'OPTIONS': {
             'context_processors': [

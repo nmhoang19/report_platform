@@ -1,55 +1,44 @@
-<!-- apps/home/templates/home/home.html -->
-{% extends 'base.html' %}
-{% load static %}  <!-- Thêm dòng này để load thẻ static -->
-
-{% block extra_css %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %} <!-- Load thẻ static để sử dụng file tĩnh -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Platform</title>
     <!-- Chỉ load CSS cho trang home -->
     <link rel="stylesheet" href="{% static 'home/style.css' %}">
-{% endblock %}
-
-{% block content %}
-<div class="container">
-    <div class="sidebar">
-        <ul>
-            <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
-            <li><a href="#"><i class="fas fa-link"></i> Prep Report Platform Guide</a></li>
-            <li><a href="#"><i class="fas fa-chart-bar"></i> Reports</a></li>
-            <li><a href="#"><i class="fas fa-user-tag"></i> Roles</a></li>
-            <li><a href="#"><i class="fas fa-users"></i> Users</a></li>
-        </ul>
-    </div>
-
-    <div class="main-content">
-        <h1>Dashboard</h1>
-        <div class="user-info">
-            <div class="user-details">
-                <h2>Welcome</h2>
-                <p>Nguyễn Mạnh Hoàng</p>
-            </div>
-            <button class="sign-out-btn">Sign out</button>
+</head>
+<body>
+    <header>
+        <h1>Report Platform</h1>
+    </header>
+    
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="#" ><i class="fas fa-home"></i> Report Page</a></li>
+                <li><a href="#"><i class="fas fa-link"></i> Prep Report Platform Guide</a></li>
+                <li><a 
+                    href="{% url 'reports' %}" 
+                    class="{% if request.resolver_match.url_name == 'reports' %}active{% endif %}" >
+                    <i class="fas fa-chart-bar"></i> Reports Management
+                </a></li>
+                <li><a 
+                    href="{% url 'users' %}"  
+                    class="{% if request.resolver_match.url_name == 'users' %}active{% endif %}">
+                    <i class="fas fa-user-tag"></i> User Management</a></li>
+                <li><a href="#">
+                    <i class="fas fa-users"></i> Roles
+                </a></li>
+            </ul>
         </div>
-        <div class="data-info">
-            <table border="1" cellpadding="10" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Edit</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for item in items %}
-                    <tr>
-                        <td>{{ item.id }}</td>
-                        <td>{{ item.name }}</td>
-                        <td>{{ item.description }}</td>
-                        <td><button>Edit</button></td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+
+        <div class="main-content">
+            {% block content %}
+            <h1>Welcome to Report Sever </h1>
+            Please, choose something you want at side bar
+            {% endblock %}
         </div>
     </div>
-</div>
-{% endblock %}
+</body>
+</html>
