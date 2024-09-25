@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teams Power Users - SQL Query</title>
+    <link rel="stylesheet" href="{% static 'home/query.css' %}">
+    <!-- CodeMirror CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+    <!-- Optional: CodeMirror theme -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/eclipse.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-content">
+            <h1>Teams Power Users [Microsoft SQL Interview Question]</h1>
+            <a href="{% url 'reports' %}" class="back-btn">Back to Homepage</a>
+        </div>
+    </header>
+
+    <div class="content-container">
+        <!-- Phần mô tả đề bài (bên trái) -->
+        <div class="query-description">
+            <h2>Description</h2>
+            <p>Write a query to identify the top 2 Power Users who sent the highest number of messages on Microsoft Teams in August 2022. Display the IDs of these 2 users along with the total number of messages they sent. Output the results in descending order based on the count of the messages.</p>
+            <h3>Assumption:</h3>
+            <p>No two users have sent the same number of messages in August 2022.</p>
+            <h3>messages Table:</h3>
+            <table>
+                <tr>
+                    <th>Column Name</th>
+                    <th>Type</th>
+                </tr>
+                <tr>
+                    <td>message_id</td>
+                    <td>integer</td>
+                </tr>
+                <tr>
+                    <td>sender_id</td>
+                    <td>integer</td>
+                </tr>
+                <tr>
+                    <td>receiver_id</td>
+                    <td>integer</td>
+                </tr>
+                <tr>
+                    <td>content</td>
+                    <td>varchar</td>
+                </tr>
+                <tr>
+                    <td>sent_date</td>
+                    <td>datetime</td>
+                </tr>
+            </table>
+            <h3>Example Input:</h3>
+            <table>
+                <tr>
+                    <th>message_id</th>
+                    <th>sender_id</th>
+                    <th>receiver_id</th>
+                    <th>content</th>
+                    <th>sent_date</th>
+                </tr>
+                <tr>
+                    <td>901</td>
+                    <td>3601</td>
+                    <td>4500</td>
+                    <td>You up?</td>
+                    <td>08/03/2022 00:00:00</td>
+                </tr>
+                <tr>
+                    <td>902</td>
+                    <td>4500</td>
+                    <td>3601</td>
+                    <td>Only if you're buying</td>
+                    <td>08/03/2022 00:00:00</td>
+                </tr>
+            </table>
+            <h3>Example Output:</h3>
+            <table>
+                <tr>
+                    <th>sender_id</th>
+                    <th>message_count</th>
+                </tr>
+                <tr>
+                    <td>3601</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>4500</td>
+                    <td>1</td>
+                </tr>
+            </table>
+            <p>The dataset you are querying against may have different input & output - this is just an example!</p>
+        </div>
+
+        <!-- Phần giao diện truy vấn SQL (bên phải) -->
+        <div class="query-interface">
+            <form method="post" action="#">
+                {% csrf_token %}
+                <!-- Phần nhập mã code -->
+                <textarea id="code_area" name="sql_query">SELECT * FROM messages;</textarea>
+                <!-- Div submitarea để chứa các nút -->
+                <div class="submitarea">
+                    <button type="button" class="run-btn">Run Code</button>
+                    <button type="button" class="submit-btn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Thêm CodeMirror JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+    <!-- Ngôn ngữ SQL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/sql/sql.min.js"></script>
+    <!-- Addon để highlight dòng hiện tại -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/selection/active-line.min.js"></script>
+    <!-- Cấu hình CodeMirror -->
+    <script src="{% static 'home/query.js' %}"></script>
+</body>
+</html>

@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report Platform</title>
-    <!-- Chỉ load CSS cho trang home -->
     <link rel="stylesheet" href="{% static 'home/style.css' %}">
+
 </head>
 <body>
     <header>
@@ -17,7 +17,6 @@
         <div class="sidebar">
             <ul>
                 <li><a href="#" ><i class="fas fa-home"></i> Report Page</a></li>
-                <li><a href="#"><i class="fas fa-link"></i> Prep Report Platform Guide</a></li>
                 <li><a 
                     href="{% url 'reports' %}" 
                     class="{% if request.resolver_match.url_name == 'reports' %}active{% endif %}" >

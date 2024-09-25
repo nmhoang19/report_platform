@@ -10,3 +10,6 @@ def reports(request):
 
 def users(request):
     return render(request, 'home/users.html')
+
+def query(request):
+    return render(request, 'home/query.html')
